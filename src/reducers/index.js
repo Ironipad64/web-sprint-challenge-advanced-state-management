@@ -1,8 +1,19 @@
 
 export const initialState = {
+    isLoading: false,
+    errorMessage: ""
 }
 
-const reducer = ()=>{
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+
+        case ():
+            return ({
+                ...state,
+
+            })
+
+    }
 }
 
 export default reducer;
