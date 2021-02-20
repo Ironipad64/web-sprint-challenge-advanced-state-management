@@ -10,11 +10,17 @@ export const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
 
+        case (FETCH_ADD_SMURF_LOADING):
+            return ({
+                ...state,
+
+            });
         case ():
             return ({
                 ...state,
 
-            })
+            });
+
 
     }
 }
