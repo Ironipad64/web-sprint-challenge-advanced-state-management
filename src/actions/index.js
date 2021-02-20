@@ -1,18 +1,32 @@
 import axios from 'axios';
 
-export const FETCH_ADD_SMURF = "FETCH_STATE_LOADING"
-export const FETCH_ADD_SMURF_ERROR = "FETCH_STATE_ERROR"
+export const FETCH_ADD_SMURF_SUCCESS = "FETCH_STATE_LOADING"
 export const FETCH_ADD_SMURF_LOADING = "FETCH_ADD_SMURF_LOADING"
+export const FETCH_ADD_SMURF_ERROR = "FETCH_STATE_ERROR"
+
+
 
 export const getSmurf = () => {
     return dispatch => {
+        dispatch(fetch)
+
+        axios.get("http://localhost:3333/smurfs")
+            .then(res => {
+                dispatch(fetchAddSmurfSuccess(res.data.quote));
+            })
+            .catch(err => {
+                dispatch(fetchAddSmurfError(err.Response.code));
+            });
 
     }
 }
 
 
+export const fetchAddSmurfSuccess = (smurf) => {
+    return ({ type: FETCH_ADD_SMURF_SUCCESS, payload: smurf })
+}
 
-export const fetchAddSmurf = () => {
+export const fetchAddSmurfLoading = () => {
     return ({ type: FETCH_ADD_SMURF_LOADING });
 }
 
@@ -20,9 +34,7 @@ export const fetchAddSmurfError = (errorMessage) => {
     return ({ type: FETCH_ADD_SMURF_ERROR, payload: errorMessage })
 }
 
-// export const fetchAddSmurf = () => [
-//     return ({ type: FETCH_ADD_SMURF, payload:  })
-// ]
+
 
 
 

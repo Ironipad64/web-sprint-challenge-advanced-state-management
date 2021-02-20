@@ -6,6 +6,7 @@ import { getSmurf } from '../actions/index'
 const AddForm = (props) => {
 
     const { errorMessage } = props;
+
     const [state, setState] = useState({
         name: "",
         position: "",
@@ -54,14 +55,15 @@ const AddForm = (props) => {
             <button onClick={handleSubmit}>Submit Smurf</button>
         </form>
     </section>);
-    const mapStateToProps = state => {
-        return {
-            errorMessage: state.errorMessage,
-        };
-    }
 }
 
-export default AddForm;
+const mapStateToProps = state => {
+    return {
+        errorMessage: state.errorMessage,
+    };
+}
+
+export default connect(mapStateToProps, { getSmurf })(AddForm);
 
 //Task List:
 //1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.

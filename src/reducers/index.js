@@ -1,6 +1,8 @@
 
+import { FETCH_ADD_SMURF_SUCCESS, FETCH_ADD_SMURF_LOADING, FETCH_ADD_SMURF_ERROR } from './../actions'
+
 export const initialState = {
-    smurfArr: {},
+    smurf: {},
     isLoading: false,
     errorMessage: ""
 }
