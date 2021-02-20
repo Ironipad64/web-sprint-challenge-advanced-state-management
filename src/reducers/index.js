@@ -1,5 +1,6 @@
 
 export const initialState = {
+    smurfArr: {},
     isLoading: false,
     errorMessage: ""
 }

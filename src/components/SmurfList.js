@@ -1,6 +1,12 @@
 import React from 'react';
 import Smurf from './Smurf';
 
+import { getSmurf } from '../actions/index'
+
+import { connect } from 'react-redux';
+
+
+
 const SmurfList = () => {
     const isLoading = false;
     const testSmurf = {
@@ -21,7 +27,13 @@ const SmurfList = () => {
     </div>);
 }
 
-export default SmurfList;
+const mapStateToProps = state => {
+    return {
+        isLoading: false,
+    };
+};
+
+export default connect(mapStateToProps, { getSmurf })(SmurfList)
 
 //Task List:
 //1. Connect the smurfs and loading state values to the SmurfList component.

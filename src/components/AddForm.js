@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
+import { getSmurf } from '../actions/index'
 
 const AddForm = (props) => {
+
+    const { errorMessage } = props;
     const [state, setState] = useState({
         name: "",
         position: "",
@@ -22,7 +27,7 @@ const AddForm = (props) => {
         }
     }
 
-    const errorMessage = "";
+    // const errorMessage = "";
 
     return (<section>
         <h2>Add Smurf</h2>
